@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
-        Title="PassengerWPF" Height="700" Width="1200">
+        Title="Management Library" Height="700" Width="1200">
     <Window.Resources>
 
         <!--// Toggle Button Style Template //-->
@@ -347,7 +347,7 @@
                             <ListViewItem.ToolTip>
 
                                 <ToolTip x:Name="tt_pasenger"
-                                         Content="Passenger"
+                                         Content="Book"
                                          Style="{StaticResource tt_style}"/>
 
                             </ListViewItem.ToolTip>
@@ -376,7 +376,7 @@
                             <ListViewItem.ToolTip>
 
                                 <ToolTip x:Name="tt_flight"
-                                         Content="Flight"
+                                         Content="Category"
                                          Style="{StaticResource tt_style}"/>
 
                             </ListViewItem.ToolTip>
@@ -405,7 +405,7 @@
                             <ListViewItem.ToolTip>
 
                                 <ToolTip x:Name="tt_baggage"
-                                         Content="Baggage"
+                                         Content="Order"
                                          Style="{StaticResource tt_style}"/>
 
                             </ListViewItem.ToolTip>
@@ -435,7 +435,7 @@
                             <ListViewItem.ToolTip>
 
                                 <ToolTip x:Name="tt_bookingPlatform"
-                                         Content="BookingPlatform"
+                                         Content="Customer"
                                          Style="{StaticResource tt_style}"/>
 
                             </ListViewItem.ToolTip>

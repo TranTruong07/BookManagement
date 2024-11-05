@@ -17,11 +17,11 @@ namespace BookManagementWPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        //private Login login;
-        public MainWindow()
+        private Login login;
+        public MainWindow(Login login)
         {
             InitializeComponent();
-            //this.login = login;
+            this.login = login;
         }
         private void BG_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -30,7 +30,7 @@ namespace BookManagementWPF
         private void CloseBtn_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-            //login.Close();
+            login.Close();
         }
         private void Tg_Btn_Checked(object sender, RoutedEventArgs e)
         {
@@ -45,8 +45,8 @@ namespace BookManagementWPF
         }
         private void ListViewItem_Selected_2(object sender, RoutedEventArgs e)
         {
-            //FlightWPF flightWPF = new FlightWPF(acc);
-            //flightWPF.ShowDialog();
+            CategoryWPF categoryWPF = new CategoryWPF();
+            categoryWPF.ShowDialog();
         }
 
         private void ListViewItem_Selected_3(object sender, RoutedEventArgs e)
@@ -64,8 +64,8 @@ namespace BookManagementWPF
         private void ListViewItem_Selected_6(object sender, RoutedEventArgs e)
         {
             this.Close();
-            //login.txtPass.Password = "";
-            //login.Show();
+            login.txtPass.Password = "";
+            login.Show();
         }
     }
 }

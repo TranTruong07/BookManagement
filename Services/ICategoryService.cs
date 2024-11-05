@@ -10,5 +10,6 @@ namespace Services
     public interface ICategoryService
     {
         public List<Category> GetAllCategory();
+        public int AddCategory(Category category);
     }
 }

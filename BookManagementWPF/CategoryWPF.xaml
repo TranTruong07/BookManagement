@@ -1,0 +1,26 @@
+﻿<Window x:Class="BookManagementWPF.CategoryWPF"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BookManagementWPF"
+        mc:Ignorable="d"
+        Loaded="Window_Loaded"
+        WindowStartupLocation="CenterScreen"
+        Title="Category Management" Height="350" Width="600">
+    <Grid Margin="10">
+        <!-- DockPanel to organize Add button and DataGrid -->
+        <DockPanel>
+            <!-- Add Button -->
+            <Button Content="Add" Width="100" Height="30" DockPanel.Dock="Top" HorizontalAlignment="Right" Margin="0,20,10,10" Name="btnAdd" Click="btnAdd_Click"/>
+
+            <!-- DataGrid to display Categories -->
+            <DataGrid Name="dgCategories" AutoGenerateColumns="False" Margin="0,10,0,0" Height="248">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Category ID" Binding="{Binding CategoryId}" Width="100"/>
+                    <DataGridTextColumn Header="Category Name" Binding="{Binding CategoryName}" Width="200"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </DockPanel>
+    </Grid>
+</Window>

@@ -52,10 +52,9 @@ namespace BookManagementWPF
                 {
                     if (admin.Password.Equals(password))
                     {
-                        txtUser.Text = "OK r đấy";
-                        //MainWindow mainWindow = new MainWindow(accountMember, this);
-                        //mainWindow.Show();
-                        //this.Hide();
+                        MainWindow mainWindow = new MainWindow(this);
+                        mainWindow.Show();
+                        this.Hide();
                     }
                     else
                     {

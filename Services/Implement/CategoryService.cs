@@ -17,6 +17,11 @@ namespace Services.Implement
             this.categoryRepository = categoryRepository;
         }
 
+        public int AddCategory(Category category)
+        {
+            return categoryRepository.AddCategory(category);
+        }
+
         public List<Category> GetAllCategory()
         {
             return categoryRepository.GetAllCategory();

@@ -14,6 +14,13 @@ namespace Repositories.Implement
         {
             this.context = new BookManagementContext();
         }
+
+        public int AddCategory(Category category)
+        {
+            context.Categories.Add(category);
+            return context.SaveChanges();
+        }
+
         public List<Category> GetAllCategory()
         {
             return context.Categories.ToList();
