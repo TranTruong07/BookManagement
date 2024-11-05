@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using DataAccess.Models;
+using Repositories.Implement;
+using Services;
+using Services.Implement;
 
 namespace BookManagementWPF
 {
@@ -20,12 +23,12 @@ namespace BookManagementWPF
     /// </summary>
     public partial class Login : Window
     {
-        private readonly BookManagementContext context;
+        private IAdminService adminService;
 
         public Login()
         {
             InitializeComponent();
-            context = new BookManagementContext();
+            adminService = new AdminService(new AdminRepository());
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
@@ -43,7 +46,7 @@ namespace BookManagementWPF
 
             if (!string.IsNullOrEmpty(username) && !string.IsNullOrEmpty(password))
             {
-                Admin? admin = context.Admins.Where(x => x.Username.Equals(username)).FirstOrDefault();
+                Admin? admin = adminService.GetAdminByUserName(username);
 
                 if (admin != null)
                 {

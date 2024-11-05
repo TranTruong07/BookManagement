@@ -17,16 +17,21 @@
     <None Remove="Icon\img_setting.png" />
     <None Remove="Icon\img_signout.png" />
     <None Remove="Icon\password-16.png" />
+    <None Remove="img\backgroupBook.jpg" />
+    <None Remove="img\book.png" />
+    <None Remove="img\category.png" />
     <None Remove="img\Close.png" />
     <None Remove="img\closeBtn_default.png" />
     <None Remove="img\closeBtn_MouseOver.png" />
     <None Remove="img\CloseRed.png" />
+    <None Remove="img\customer.png" />
     <None Remove="img\Flight.jpg" />
     <None Remove="img\img_setting.png" />
     <None Remove="img\img_signout.png" />
     <None Remove="img\logon1.jpg" />
     <None Remove="img\menu.png" />
     <None Remove="img\menublu.png" />
+    <None Remove="img\order.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -49,6 +54,15 @@
     <Resource Include="Icon\password-16.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="img\backgroupBook.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\book.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\category.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="img\Close.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
@@ -59,6 +73,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="img\CloseRed.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\customer.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="img\Flight.jpg">
@@ -77,6 +94,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="img\menublu.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\order.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
