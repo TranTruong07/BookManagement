@@ -5,7 +5,9 @@ using Services.Implement;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -15,6 +17,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace BookManagementWPF
 {
@@ -59,7 +62,12 @@ namespace BookManagementWPF
             CurrentCustomer.Phone = txtPhone.Text;
             CurrentCustomer.Address = txtAddress.Text;
             CurrentCustomer.RegistrationDate = dpRegistrationDate.SelectedDate;
-
+            string Error;
+            if(!Validate(out Error, CurrentCustomer.Email, CurrentCustomer.Phone, CurrentCustomer.Address, CurrentCustomer.RegistrationDate))
+            {
+                MessageBox.Show(Error, "Add Customer Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
             if(!IsEditMode)
             {
                 int result = customerService.AddCustomer(CurrentCustomer);
@@ -86,6 +94,49 @@ namespace BookManagementWPF
         {
             this.DialogResult = false;
             this.Close();
+        }
+
+        public bool Validate(out string validationErrors, string Email, string Phone, string Address, DateTime? RegistrationDate)
+        {
+            validationErrors = string.Empty;
+
+            // Validate Email
+            if (string.IsNullOrWhiteSpace(Email) || !IsValidEmail(Email))
+            {
+                validationErrors += "Invalid email format.\n";
+            }
+
+            // Validate Phone
+            if (!string.IsNullOrWhiteSpace(Phone) && !IsValidPhone(Phone))
+            {
+                validationErrors += "Invalid phone number.\n";
+            }
+
+            // Validate Address
+            if (string.IsNullOrWhiteSpace(Address))
+            {
+                validationErrors += "Address is required.\n";
+            }
+
+            // Validate RegistrationDate
+            if (RegistrationDate.HasValue && RegistrationDate > DateTime.Now)
+            {
+                validationErrors += "Registration date must be in the past or today.\n";
+            }
+
+            return string.IsNullOrEmpty(validationErrors);
+        }
+
+        private bool IsValidEmail(string email)
+        {
+            var emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+            return Regex.IsMatch(email, emailPattern);
+        }
+
+        private bool IsValidPhone(string phone)
+        {
+            var phonePattern = @"^(03|05|07|08|09)\d{8}$";
+            return Regex.IsMatch(phone, phonePattern);
         }
     }
 }

@@ -62,6 +62,11 @@ namespace BookManagementWPF
             CurrentOrder.BookId = (int)cbBook.SelectedValue;
             CurrentOrder.BorrowDate = dpBorrowDate.SelectedDate;
             CurrentOrder.ReturnDate = dpReturnDate.SelectedDate;
+            if(CurrentOrder.BorrowDate > CurrentOrder.ReturnDate)
+            {
+                MessageBox.Show("BorrowDate need < ReturnDate.", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
             if (!IsEdit)
             {
                 int result = orderService.AddOrder(CurrentOrder);

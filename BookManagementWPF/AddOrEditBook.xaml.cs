@@ -75,6 +75,12 @@ namespace BookManagementWPF
             CurrentBook.PublishedYear = int.Parse(txtPublishedYear.Text);
             CurrentBook.CategoryId = (int)cbCategory.SelectedValue;
             CurrentBook.IsAvailable = chkIsAvailable.IsChecked;
+            int currentYear = DateTime.Now.Year;
+            if(CurrentBook.PublishedYear > currentYear)
+            {
+                MessageBox.Show("Please fill in the PublishedYear <= Current Year.", "Input Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
             if (!IsEditMode)
             {
                 int result = bookService.AddBook(CurrentBook);
